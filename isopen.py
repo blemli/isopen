@@ -46,7 +46,7 @@ class AlwaysTimeslot(OpeningTimeslot):
     def __init__(self, is_positive):
         self.is_positive = is_positive
 
-    def _str_(self):
+    def __str__(self):
         string_repr = "24/7"
         if not self.is_positive:
             string_repr += " off"
@@ -66,7 +66,7 @@ class SunriseSunsetTimeslot(OpeningTimeslot):
     def __init__(self, is_positive):
         self.is_positive = is_positive
 
-    def _str_(self):
+    def __str__(self):
         string_repr = "sunrise-sunset"
         if not self.is_positive:
             string_repr += " off"
@@ -98,7 +98,7 @@ class SingleWeekdayTimeslot(OpeningTimeslot):
         self.time_to = time_to
         self.is_positive = is_positive
 
-    def _str_(self):
+    def __str__(self):
         string_repr = self.weekday + " " + self.time_from + "-" + self.time_to
         if not self.is_positive:
             string_repr += " off"
@@ -131,7 +131,7 @@ class SingleMonthTimeslot(OpeningTimeslot):
         self.time_to = time_to
         self.is_positive = is_positive
 
-    def _str_(self):
+    def __str__(self):
         return self.month + " " + self.time_from + "-" + self.time_to
 
     def is_positive(self):
@@ -149,7 +149,7 @@ class SingleMonthdayTimeslot(OpeningTimeslot):
         self.time_to = time_to
         self.is_positive = is_positive
 
-    def _str_(self):
+    def __str__(self):
         string_repr = self.month + " " + self.monthday + " " + self.time_from + "-" + self.time_to
         if not self.is_positive:
             string_repr += " off"
